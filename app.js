@@ -1,0 +1,29 @@
+new fullpage("#fullpage", {
+  autoScrolling: true,
+  navigation: true,
+  onLeave: (origin, destination, direction) => {
+    const section = destination.item;
+    const title = section.querySelector("h1");
+    const tl = new TimelineMax({ delay: 0.5 });
+    //Pour toutes les sections on va modifier le titre
+    tl.fromTo(title, 0.5, { y: "50", opacity: 0 }, { y: "0", opacity: 1 });
+
+    //Permet de choisir la section (commence à 0)
+    console.log(destination.index);
+    if (destination.index === 1) {
+      const chairs = document.querySelectorAll(".chair");
+      const description = document.querySelector(".description");
+
+      tl.fromTo(chairs, 0.7, { x: "100%" }, { x: "-35%" })
+        .fromTo(
+          description,
+          0.5,
+          { y: "50", opacity: 0 },
+          { y: "0", opacity: 1 }
+        )
+        .fromTo(chairs[0], 1, { opacity: 1 }, { opacity: 1 })
+        .fromTo(chairs[1], 1, { opacity: 0 }, { opacity: 1 })
+        .fromTo(chairs[2], 1, { opacity: 0 }, { opacity: 1 });
+    } // fin du if
+  }
+});
