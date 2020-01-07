@@ -6,7 +6,7 @@ new fullpage("#fullpage", {
     const title = section.querySelector("h1");
     const tl = new TimelineMax({ delay: 0.5 });
     //Pour toutes les sections on va modifier le titre
-    tl.fromTo(title, 0.5, { y: "50", opacity: 0 }, { y: "0", opacity: 1 });
+    tl.fromTo(title, 0.5, { y: "50", opacity: 0 }, { y: "0", opacity: 1 }); // élément,duration,object1: départ, object2: arrivée
 
     //Permet de choisir la section (commence à 0)
     console.log(destination.index);
